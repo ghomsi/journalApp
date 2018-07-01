@@ -12,7 +12,7 @@ Download the apk and enjoy :)
 
 ## Authors
 
-* **Ghomsi Adrien Arnaud** - *Initial work* - [PurpleBooth](https://github.com/ghomsi)
+* **Ghomsi Adrien Arnaud** - *Initial work* - [adrienDev](https://github.com/ghomsi)
 
 ## License
 
