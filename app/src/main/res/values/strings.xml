@@ -36,7 +36,7 @@
 
     <string name="edit_diary_title">Add Title&#8230;</string>
     <string name="edit_diary_description">Describe your diary&#8230;</string>
-    <string name="priority_string">Priority</string>
+    <string name="priority_string">Diary Priority</string>
 
     <string name="high_priority">High</string>
     <string name="med_priority">Medium</string>

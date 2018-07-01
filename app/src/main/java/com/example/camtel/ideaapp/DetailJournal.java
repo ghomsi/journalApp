@@ -22,16 +22,17 @@ import com.example.camtel.ideaapp.factory.DetailDiaryViewModelFactory;
 import com.example.camtel.ideaapp.viewsModel.DetailDiaryViewModel;
 
 import java.text.SimpleDateFormat;
+import java.util.List;
 import java.util.Locale;
 
 public class DetailJournal extends AppCompatActivity {
 
     private static final String TAG = DetailJournal.class.getSimpleName();
 
-    public static final String EXTRA_DIARY_ID = "extra0DiaryId";
+    public static final String EXTRA_DIARY_ID = "extraDiaryId";
     private static final int DEFAULT_DIARY_ID = -1;
-    private int mDiaryId;
-    public static final String INSTANCE_DIARY_ID = "instance0DiaryId";
+    private int mDiaryId=DEFAULT_DIARY_ID;
+    public static final String INSTANCE_DIARY_ID = "instanceDiaryId";
 
     private TextView mDisplayTitle;
     private TextView mDisplayDescription;
@@ -65,12 +66,28 @@ public class DetailJournal extends AppCompatActivity {
             if(mDiaryId==DEFAULT_DIARY_ID){
                 mDiaryId = intentThatStartedThisActivity.getIntExtra(EXTRA_DIARY_ID,DEFAULT_DIARY_ID);
                 Log.d(TAG,"Receiving diary id:"+mDiaryId);
+                /*JournalExecutors.getsInstance().getDiskIO().execute(new Runnable() {
+                    @Override
+                    public void run() {
+
+                        final Diary diary = mDb.diaryDAO().loadDiarById(mDiaryId);
+                        runOnUiThread(new Runnable() {
+                            @Override
+                            public void run() {
+                                populateUI(diary);
+                            }
+                        });
+
+
+                    }
+                });*/
                 DetailDiaryViewModelFactory factory = new DetailDiaryViewModelFactory(mDb,mDiaryId);
                 final DetailDiaryViewModel viewModel =
                         ViewModelProviders.of(this,factory).get(DetailDiaryViewModel.class);
                 viewModel.getDiary().observe(this, new Observer<Diary>() {
                     @Override
                     public void onChanged(@Nullable Diary diary) {
+                        viewModel.getDiary().removeObserver(this);
                         Log.d(TAG,"Receiving diary from LiveData in ViewModel");
                         populateUI(diary);
                     }

@@ -187,32 +187,7 @@ public class MainActivity extends AppCompatActivity implements
     }
 
 
-    /*private void makeJournalSearchQuery(){
-        String journalQuery = mSearchBoxEditText.getText().toString();
 
-        if(TextUtils.isEmpty(journalQuery)){
-            mUrlDisplayTextView.setText("No query entered, nothing to search for.");
-            return;
-        }
-
-        URL journalSearchUrl = NetworkUtils.buildUrl(journalQuery);
-        mUrlDisplayTextView.setText(journalSearchUrl.toString());
-
-        Bundle queryBundle = new Bundle();
-        queryBundle.putString(SEARCH_QUERY_URL_EXTRA,journalSearchUrl.toString());
-
-        LoaderManager loaderManager = getSupportLoaderManager();
-        Loader<String> journalSearchLoader = loaderManager.getLoader(SEARCH_LOADER);
-
-        if(journalSearchLoader==null){
-            loaderManager.initLoader(SEARCH_LOADER,queryBundle, this);
-        }else{
-            loaderManager.restartLoader(SEARCH_LOADER,queryBundle,this);
-        }@Override
-    public void onLoadFinished(@NonNull Loader<String[]> loader, String[] data) {
-
-    }
-    }*/
 
     private void showJsonDataView(){
     }
@@ -285,10 +260,9 @@ public class MainActivity extends AppCompatActivity implements
         mLoadingindicator.setVisibility(View.INVISIBLE);
 
         if(null == data){
-            //showErrorMessage();
+
         }else{
-            //showJsonDataView();
-            //mJournalAdapter.setJournalData(data);
+
         }
 
     }

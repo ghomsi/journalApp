@@ -1,5 +1,6 @@
 package com.example.camtel.ideaapp;
 
+import android.arch.lifecycle.LiveData;
 import android.arch.lifecycle.Observer;
 import android.arch.lifecycle.ViewModelProviders;
 import android.content.Intent;
@@ -22,8 +23,8 @@ import java.util.Date;
 
 public class AddJournal extends AppCompatActivity {
 
-    public static final String EXTRA_DIARY_ID = "extra1DiaryId";
-    public static final String INSTANCE_DIARY_ID = "instance1DiaryId";
+    public static final String EXTRA_DIARY_ID = "extraDiaryId";
+    public static final String INSTANCE_DIARY_ID = "instanceDiaryId";
     public static final int PRIORITY_HIGH = 1;
     public static final int PRIORITY_MEDIUM = 2;
     public static final int PRIORITY_LOW = 3;
@@ -68,6 +69,7 @@ public class AddJournal extends AppCompatActivity {
                 AddDiaryViewModelFactory factory = new AddDiaryViewModelFactory(mDb,mDiaryId);
                 final AddDiaryViewModel viewModel
                         = ViewModelProviders.of(this,factory).get(AddDiaryViewModel.class);
+
                 viewModel.getDiary().observe(this, new Observer<Diary>() {
                     @Override
                     public void onChanged(@Nullable Diary diaryEntry) {
