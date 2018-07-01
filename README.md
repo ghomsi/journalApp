@@ -2,7 +2,10 @@
 #7DaysofCodeChallenge Android Developer Track
 
 ### description
-this is a journal application where in you can pen down your thoughts and feelings. 
+this is a journal application where in you can pen down your thoughts and feelings.
+
+## Defaut login(email:password) or login with your Gmail account
+foo@example.com:hello | bar@example.com:world
 
 ### Prerequisites
 phone with Android 4.2.2 or newer 
