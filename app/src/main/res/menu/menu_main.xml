@@ -1,0 +1,22 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context="com.example.camtel.ideaapp.MainActivity">
+    <item
+        android:id="@+id/action_settings"
+        android:orderInCategory="100"
+        android:title="@string/action_settings"
+        app:showAsAction="never" />
+    <item
+        android:title="@string/search"
+        android:id="@+id/action_search"
+        android:orderInCategory="2"
+        app:srcCompat="@android:drawable/ic_menu_search"
+        app:showAsAction="ifRoom"/>
+    <item
+        android:title="@string/about"
+        android:id="@+id/action_about"
+        android:orderInCategory="3"
+        app:showAsAction="never"/>
+
+</menu>
